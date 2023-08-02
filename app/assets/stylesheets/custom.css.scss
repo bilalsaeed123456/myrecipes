@@ -23,12 +23,22 @@ $navbar-default-bg:#2f2e59;
     color: #fff;
     text-decoration: none;
 }
-.jumbotron h1,h2{
+.jumbotron h1{
     color: #fff;
     text-align: center;
     margin-bottom: 30px;
     letter-spacing: -1px;
     font-weight: bold;
+}
+.jumbotron h2{
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+h2{
+    color: #7f8ab1;
 }
 .btn-xlarge{
     background-color: #2f2e59;
@@ -37,6 +47,12 @@ $navbar-default-bg:#2f2e59;
     color: #fff;
     text-decoration: none;
 }
-.bg-use{
-    background-color:#7f8ab1;
+.my-f{
+    color:#fff;
+}
+.my-f1{
+    color: #fff;
+}
+.my-f1{
+    color: #fff;
 }
