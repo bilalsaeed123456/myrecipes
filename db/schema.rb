@@ -23,7 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_03_094804) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-
+    t.integer "cheif_id"
     t.integer "chef_id"
   end
 

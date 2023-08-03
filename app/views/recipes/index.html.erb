@@ -1,13 +1,13 @@
-<h1 align="center">Listing All Recipes</h1>
-<hr />
+<%= render 'shared/page_title', title: "Showing all recipes" %>
 <% @recipes.each do |recipe| %>
     <div class="row">
         <div class="col-md-2">
-            <section class="center">
+            <section class="chef_info center">
+
             </section>
         </div>
         <div class="col-md-8">
-            <h4><%= recipe.name %></h4>
+            <h4><%= link_to recipe.name, recipe_path(recipe) %></h4>
             <p><%= truncate(recipe.description, length: 150) %></p>
             <p>
                 <span class="quiet"><small><%= time_ago_in_words(recipe.created_at) %> ago</small></span>
