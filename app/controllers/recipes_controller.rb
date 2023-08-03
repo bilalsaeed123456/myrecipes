@@ -18,8 +18,26 @@ class RecipesController < ApplicationController
       flash[:success]="Saves recipe"
       redirect_to recipe_path(@recipe)
      else
-      render 'new'
+      render 'new',status: 422
      end
+  end
+  def edit
+    @recipe=Recipe.find(params[:id])
+  end
+  def update
+    @recipe=Recipe.find(params[:id])
+    if @recipe.update(recipe_params)
+      flash[:success]="Saves recipe"
+      redirect_to recipe_path(@recipe)
+    else
+      render 'edit', status: 422
+    end
+  end
+
+  def destroy
+    Recipe.find(params[:id]).destroy
+    flash[:success] = "Deleted this recipe"
+    redirect_to recipes_path
   end
 
   private
