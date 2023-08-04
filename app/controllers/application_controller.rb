@@ -15,4 +15,11 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+
+  def require_same_user
+    if current_chef != @recipe.chef
+      flash[:danger] ="You can edit or delete only your recipes"
+      redirect_to recipes_path
+    end
+  end
 end

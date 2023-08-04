@@ -8,13 +8,9 @@
           <li class="chef-title"><%= link_to chef.chefname.capitalize, chef_path(chef) %></li>
           <li><small><%= pluralize(chef.recipes.count, "recipes") if chef.recipes %></small></li>
           <li>
-            <%= link_to"Delete this chef", chef_path(chef), method: :delete,
-              data: {turbo: true},
-              :onclick => "return confirm('Are you sure you want to delete this chef and its recipes?')" %>
 
 
-            <%= button_to 'Destroy', chef, method: :delete, form:
-              { data: { turbo: true, turbo_confirm: 'Are you sure?' } } %>
+            <%= button_to 'Delete', chef, method: :delete, form:{ data: { turbo: true, turbo_confirm: 'Are you sure?' } } %>
           </li>
         </div>
       </div>
