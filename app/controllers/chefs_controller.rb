@@ -2,7 +2,9 @@ class ChefsController < ApplicationController
   def new
     @chef=Chef.new
   end
-
+  def index
+    @chefs= Chef.all
+  end
   def create
     @chef=Chef.new(chef_params)
     if @chef.save
