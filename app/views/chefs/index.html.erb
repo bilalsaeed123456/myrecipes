@@ -7,11 +7,13 @@
         <div class="well col-md-4 col-md-offest-4">
           <li class="chef-title"><%= link_to chef.chefname.capitalize, chef_path(chef) %></li>
           <li><small><%= pluralize(chef.recipes.count, "recipes") if chef.recipes %></small></li>
-          <li>
+          <% if logged_in? && current_chef.admin? && !chef.admin? %>
+            <li>
 
 
-            <%= button_to 'Delete', chef, method: :delete, form:{ data: { turbo: true, turbo_confirm: 'Are you sure?' } } %>
-          </li>
+              <%= button_to 'Delete', chef, method: :delete, form:{ data: { turbo: true, turbo_confirm: 'Are you sure?' } } %>
+            </li>
+          <% end %>
         </div>
       </div>
     </ul>
