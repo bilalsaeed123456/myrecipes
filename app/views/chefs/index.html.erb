@@ -1,15 +1,24 @@
 <%= render 'shared/page_title', title: "Showing all chefs" %>
 <div align="center">
-    <%= will_paginate %>
-    <% @chefs.each do |chef| %>
-        <ul class="listing">
-            <div class="row">
-                <div class="well col-md-4 col-md-offest-4">
-                    <li class="chef-title"><%= link_to chef.chefname.capitalize, chef_path(chef) %></li>
-                    <li><small><%= pluralize(chef.recipes.count, "recipes") if chef.recipes %></small></li>
-                </div>
-            </div>
-        </ul>
-    <% end %>
-    <%= will_paginate %>
+  <%= will_paginate %>
+  <% @chefs.each do |chef| %>
+    <ul class="listing">
+      <div class="row">
+        <div class="well col-md-4 col-md-offest-4">
+          <li class="chef-title"><%= link_to chef.chefname.capitalize, chef_path(chef) %></li>
+          <li><small><%= pluralize(chef.recipes.count, "recipes") if chef.recipes %></small></li>
+          <li>
+            <%= link_to"Delete this chef", chef_path(chef), method: :delete,
+              data: {turbo: true},
+              :onclick => "return confirm('Are you sure you want to delete this chef and its recipes?')" %>
+
+
+            <%= button_to 'Destroy', chef, method: :delete, form:
+              { data: { turbo: true, turbo_confirm: 'Are you sure?' } } %>
+          </li>
+        </div>
+      </div>
+    </ul>
+  <% end %>
+  <%= will_paginate %>
 </div>
