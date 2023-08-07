@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   #devise_for :users, controllers: { sessions: 'sessions' }
   delete '/logout', to: 'sessions#destroy', as: :logout
 
+  resources :ingredients, except: [:destroy]
 end
